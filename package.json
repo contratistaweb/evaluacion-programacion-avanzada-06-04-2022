@@ -1,0 +1,23 @@
+{
+  "name": "evaluacion-programacion-avanzada-06-04-2022",
+  "version": "1.0.0",
+  "description": "desarrollo de evaluación para la asignatura de programación avanzada",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contratistaweb/evaluacion-programacion-avanzada-06-04-2022.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/contratistaweb/evaluacion-programacion-avanzada-06-04-2022/issues"
+  },
+  "homepage": "https://github.com/contratistaweb/evaluacion-programacion-avanzada-06-04-2022#readme",
+  "dependencies": {
+    "inquirer": "^8.2.2"
+  }
+}
