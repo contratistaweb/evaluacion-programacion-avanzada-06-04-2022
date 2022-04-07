@@ -38,120 +38,143 @@ const inquirer = require('inquirer');
 /*
      various types of questions
  */
-const expandQuestion = () => {
-    return inquirer
-        .prompt(
-            [
-                {
-                    type: 'expand',
-                    name: 'favorite_food',
-                    message: 'What is your favorite food?',
-                    choices: [
-                        {
-                            key: 'a',
-                            name: 'Pizza',
-                            value: 'pizza',
-                        },
-                        {
-                            key: 'b',
-                            name: 'Hamburg',
-                            value: 'hamburg',
-                        },
-                        {
-                            key: 'c',
-                            name: 'Hot dog',
-                            value: 'hot-dog',
-                        },
-                    ],
-                }
-            ]
-        )
-}
+// const expandQuestion = () => {
+//     return inquirer
+//         .prompt(
+//             [
+//                 {
+//                     type: 'expand',
+//                     name: 'favorite_food',
+//                     message: 'What is your favorite food?',
+//                     choices: [
+//                         {
+//                             key: 'a',
+//                             name: 'Pizza',
+//                             value: 'pizza',
+//                         },
+//                         {
+//                             key: 'b',
+//                             name: 'Hamburg',
+//                             value: 'hamburg',
+//                         },
+//                         {
+//                             key: 'c',
+//                             name: 'Hot dog',
+//                             value: 'hot-dog',
+//                         },
+//                     ],
+//                 }
+//             ]
+//         )
+// }
+//
+// const checkBoxQuestion = () => {
+//     return inquirer
+//         .prompt(
+//             [
+//                 {
+//                     type: 'checkbox',
+//                     name: 'favorite_food',
+//                     message: 'What is your favorite food?',
+//                     choices: [
+//                         {name: 'Pizza'},
+//                         {name: 'Hamburg'},
+//                         {name: 'Hot dog'}
+//                     ],
+//                 }
+//             ]
+//         )
+// }
+//
+// const rawListQuestion = () => {
+//     return inquirer
+//         .prompt([
+//             {
+//                 type: 'checkbox',
+//                 name: 'favorite_food',
+//                 message: 'What is your favorite food?',
+//                 choices: ['Pizza', 'Hamburg', 'Hot dog'],
+//             }, {
+//                 type: 'rawList',
+//                 name: 'favorite_food',
+//                 message: 'What is your favorite food?',
+//                 // choices: ['Pizza', 'Hamburg', 'Hot dog', 'sushi', 'Ramen'],
+//             },
+//         ])
+// }
+//
+// const numberQuestion = () => {
+//     return inquirer
+//         .prompt([
+//             {
+//                 type: 'number',
+//                 name: 'favorite_food',
+//                 message: 'What is your favorite food?',
+//                 choices: ['Pizza', 'Hamburg', 'Hot dog'],
+//             }
+//         ])
+// }
+//
+// const listQuestion = () => {
+//     return inquirer
+//         .prompt([
+//             {
+//                 type: 'list',
+//                 name: 'favorite_food',
+//                 message: 'What is your favorite food?',
+//                 choices: ['Pizza', 'Hamburg', 'Hot dog'],
+//             }
+//         ])
+// }
+//
+// expandQuestion()
+// .then((answers) => {
+//     console.log(JSON.stringify(answers, null, '  '));
+// });
+// checkBoxQuestion()
+//     .then((answers) => {
+//         console.log(JSON.stringify(answers, null, '  '));
+//     });
+//
+// rawListQuestion()
+//     .then((answers) => {
+//         console.log(JSON.stringify(answers, null, '  '));
+//     });
+//
+// numberQuestion()
+//     .then((answers) => {
+//         console.log(JSON.stringify(answers, null, '  '));
+//     });
+//
+// listQuestion()
+//     .then((answers) => {
+//         console.log(JSON.stringify(answers, null, '  '));
+//     });
+//
+// expandQuestion().finally()
+// checkBoxQuestion().finally()
+// rawListQuestion().finally()
+// listQuestion().finally()
 
-const checkBoxQuestion = () => {
-    return inquirer
-        .prompt(
-            [
-                {
-                    type: 'checkbox',
-                    name: 'favorite_food',
-                    message: 'What is your favorite food?',
-                    choices: [
-                        {name: 'Pizza'},
-                        {name: 'Hamburg'},
-                        {name: 'Hot dog'}
-                    ],
-                }
-            ]
-        )
-}
+/*
+    open editor with Inquirer
+ */
 
-const rawListQuestion = () => {
-    return inquirer
-        .prompt([
-            {
-                type: 'checkbox',
-                name: 'favorite_food',
-                message: 'What is your favorite food?',
-                choices: ['Pizza', 'Hamburg', 'Hot dog'],
-            }, {
-                type: 'rawList',
-                name: 'favorite_food',
-                message: 'What is your favorite food?',
-                // choices: ['Pizza', 'Hamburg', 'Hot dog', 'sushi', 'Ramen'],
+const openEditor = () => {
+    return  inquirer.prompt([
+        {
+            type: 'editor',
+            name: 'bio',
+            message: 'Please write a short bio of at least 3 lines.',
+            validate(text) {
+                if (text.split('\n').length < 3) {
+                    return 'Must be at least 3 lines.';
+                }
+
+                return true;
             },
-        ])
+        }
+    ])
 }
 
-const numberQuestion = () => {
-    return inquirer
-        .prompt([
-            {
-                type: 'number',
-                name: 'favorite_food',
-                message: 'What is your favorite food?',
-                choices: ['Pizza', 'Hamburg', 'Hot dog'],
-            }
-        ])
-}
-
-const listQuestion = () => {
-    return inquirer
-        .prompt([
-            {
-                type: 'list',
-                name: 'favorite_food',
-                message: 'What is your favorite food?',
-                choices: ['Pizza', 'Hamburg', 'Hot dog'],
-            }
-        ])
-}
-
-expandQuestion()
-.then((answers) => {
-    console.log(JSON.stringify(answers, null, '  '));
-});
-checkBoxQuestion()
-    .then((answers) => {
-        console.log(JSON.stringify(answers, null, '  '));
-    });
-
-rawListQuestion()
-    .then((answers) => {
-        console.log(JSON.stringify(answers, null, '  '));
-    });
-
-numberQuestion()
-    .then((answers) => {
-        console.log(JSON.stringify(answers, null, '  '));
-    });
-
-listQuestion()
-    .then((answers) => {
-        console.log(JSON.stringify(answers, null, '  '));
-    });
-
-expandQuestion().finally()
-checkBoxQuestion().finally()
-rawListQuestion().finally()
-listQuestion().finally()
+openEditor().then().finally()
