@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 /*
     form inquirer
+    input fields are added that request personal information of a person,
+    it is built by adding an input type for each question to capture the answer in an object.
  */
 // inquirer.prompt([
 //     {
@@ -21,6 +23,8 @@ const inquirer = require('inquirer');
 
 /*
     list inquirer
+    inquirer lists are built by selecting the type 'lists'
+    and adding an array of options to the choices attribute.
  */
 // inquirer
 //     .prompt([
@@ -37,6 +41,7 @@ const inquirer = require('inquirer');
 
 /*
      various types of questions
+     Inquirer has different types or ways of displaying information.
  */
 // const expandQuestion = () => {
 //     return inquirer
@@ -158,23 +163,25 @@ const inquirer = require('inquirer');
 
 /*
     open editor with Inquirer
+    Inquirer allows to open an editor to manage information or data in a file,
+    it is only necessary to specify in the 'type' attribute as value 'editor'
  */
 
-const openEditor = () => {
-    return  inquirer.prompt([
-        {
-            type: 'editor',
-            name: 'bio',
-            message: 'Please write a short bio of at least 3 lines.',
-            validate(text) {
-                if (text.split('\n').length < 3) {
-                    return 'Must be at least 3 lines.';
-                }
-
-                return true;
-            },
-        }
-    ])
-}
-
-openEditor().then().finally()
+// const openEditor = () => {
+//     return  inquirer.prompt([
+//         {
+//             type: 'editor',
+//             name: 'bio',
+//             message: 'Please write a short bio of at least 3 lines.',
+//             validate(text) {
+//                 if (text.split('\n').length < 3) {
+//                     return 'Must be at least 3 lines.';
+//                 }
+//
+//                 return true;
+//             },
+//         }
+//     ])
+// }
+//
+// openEditor().then().finally()
